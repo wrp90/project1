@@ -35,3 +35,19 @@ var getToken = function() {
 getToken();
 
 // document.getElementById("seachBtn").addEventListener("click", getToken);
+
+function getCatImage(){
+	fetch('https://api.thecatapi.com/v1/images/search?size=full', {
+		method: 'GET',
+	}).then(function(response) {
+		// Return the response as JSON
+		return response.json();
+	}).then(function (data){
+		document.getElementById('rotatingImage').innerHTML = data[0]['url'];
+
+		var html = '<img src="' + data[0]["url"] + '">';
+  		document.getElementById("rotatingImage").innerHTML = html;
+	})
+
+}
+getCatImage();
