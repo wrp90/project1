@@ -67,10 +67,10 @@ function getCatImage(){
 		// Return the response as JSON
 		return response.json();
 	}).then(function (data){
-		document.getElementById('rotatingImage').innerHTML = data[0]['url'];
+		document.getElementById('rotatingCat').innerHTML = data[0]['url'];
 
 		var html = '<img src="' + data[0]["url"] + '">';
-  		document.getElementById("rotatingImage").innerHTML = html;
+  		document.getElementById("rotatingCat").innerHTML = html;
 	})
 
 }
