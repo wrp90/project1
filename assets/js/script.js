@@ -3,10 +3,10 @@
 // var secret = "b7e6nrW0HowGJevaoZ4a7oEb2WHAEQHLARl5yh3E";
 
 // couple thoughts on what we can do from here:
-//we can push pieces of the array to different html pages, making indivdual pages for different animals
+//we can push pieces of the array to different html pages, making indivdual pages for different animals (top5)
 //we can go back to finding a geo location API and try to link it with "org" var used on line 30 (not sure if it will work tho)
 
-var getToken = function() {
+var getPetAPI = function() {
     var key = "kDsIkyfOaYiaj6UGqe3EKszmJknWu8CqX7E6ITfCrxpisziqkI";
     var secret = "b7e6nrW0HowGJevaoZ4a7oEb2WHAEQHLARl5yh3E";
 
@@ -22,6 +22,8 @@ var getToken = function() {
 		return response.json();
 
 	}).then(function (data) {
+		//this fetch only gets info from the RI77 org
+		//can change the org name to find new animals from that org
 		var org = "RI77";
 		var status = "adoptable";
 		// Log the API data
@@ -58,7 +60,7 @@ var getToken = function() {
 	});
 }
 
-getToken();
+getPetAPI();
 
 // document.getElementById("seachBtn").addEventListener("click", getToken);
 
