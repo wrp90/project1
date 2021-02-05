@@ -2,7 +2,9 @@
 // var key = "kDsIkyfOaYiaj6UGqe3EKszmJknWu8CqX7E6ITfCrxpisziqkI";
 // var secret = "b7e6nrW0HowGJevaoZ4a7oEb2WHAEQHLARl5yh3E";
 
-
+// couple thoughts on what we can do from here:
+//we can push pieces of the array to different html pages, making indivdual pages for different animals
+//we can go back to finding a geo location API and try to link it with "org" var used on line 30 (not sure if it will work tho)
 
 var getToken = function() {
     var key = "kDsIkyfOaYiaj6UGqe3EKszmJknWu8CqX7E6ITfCrxpisziqkI";
@@ -23,7 +25,7 @@ var getToken = function() {
 		var org = "RI77";
 		var status = "adoptable";
 		// Log the API data
-		// console.log('token', data);
+		console.log('token', data);
 		
 		return fetch('https://api.petfinder.com/v2/animals?organization=' + org + '&status=' + status, {
 		headers: {
