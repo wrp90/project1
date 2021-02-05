@@ -67,4 +67,21 @@ function getCatImage(){
 	})
 
 }
+
+
+function getDogImage(){
+	fetch('https://dog.ceo/api/breeds/image/random', {
+		method: 'GET',
+	}).then(function(response) {
+		// Return the response as JSON
+		return response.json();
+	}).then(function (data){
+		document.getElementById('rotatingDog').innerHTML = data['message'];
+
+		var html = '<img src="' + data["message"] + '">';
+  		document.getElementById("rotatingDog").innerHTML = html;
+	})
+
+}
 getCatImage();
+getDogImage();
