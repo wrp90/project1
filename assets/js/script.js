@@ -94,5 +94,10 @@ function getDogImage(){
 	})
 
 }
-getCatImage();
-getDogImage();
+
+var intermittentCatImage = window.setInterval(function(){
+	getCatImage();
+},6000);
+var intermittentDogImage = window.setInterval(function(){
+	getDogImage();
+},6000);
