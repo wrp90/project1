@@ -24,19 +24,19 @@ var getPetAPI = function() {
 	}).then(function (data) {
 		//this fetch only gets info from the RI77 org
 		//can change the org name to find new animals from that org
-		var org = "RI77";
+		var org = "";
 		var status = "adoptable";
 		// Log the API data
 		console.log('token', data);
 		
-		return fetch('https://api.petfinder.com/v2/animals?organization=' + org + '&status=' + status, {
+		return fetch('https://api.petfinder.com/v2/animals?location=' + "Austin, texas" + '&status=' + status, {
 		headers: {
 			'Authorization': data.token_type + ' ' + data.access_token,
 			'Content-Type': 'application/x-www-form-urlencoded'
 		}
 	});
 	}).then(function (response) {
-
+		console.log(response)
 		// Return the API response as JSON
 		return response.json();
 
@@ -101,3 +101,4 @@ var intermittentCatImage = window.setInterval(function(){
 var intermittentDogImage = window.setInterval(function(){
 	getDogImage();
 },6000);
+
