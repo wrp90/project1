@@ -24,7 +24,7 @@ var getPetAPI = function() {
 	}).then(function (data) {
 		//this fetch only gets info from the RI77 org
 		//can change the org name to find new animals from that org
-		var org = "RI77";
+		var org = "";
 		var status = "adoptable";
 		// Log the API data
 		console.log('token', data);
