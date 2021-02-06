@@ -7,16 +7,15 @@
 //we can go back to finding a geo location API and try to link it with "org" var used on line 30 (not sure if it will work tho)
 
 //Global variables
-userFormEl = document.querySelector("search-form");
-
-
+userFormEl = document.querySelector("#search-form");
 //Submit handler to handle the submit values
 var formSubmitHandler = function(event) {
 	event.preventDefault();
-	userInput = doctument.getElementById("search-input");
+	userInput = document.getElementById("search-input");
 	inputValue = userInput.value.trim();
-	console.log(inputValue)
+	getPetAPI(inputValue);
 }
+// console.log(zip)
 
 var getPetAPI = function() {
     var key = "kDsIkyfOaYiaj6UGqe3EKszmJknWu8CqX7E6ITfCrxpisziqkI";
@@ -36,12 +35,12 @@ var getPetAPI = function() {
 	}).then(function (data) {
 		//this fetch only gets info from the RI77 org
 		//can change the org name to find new animals from that org
-		var org = "";
+		var org = '';
 		var status = "adoptable";
 		// Log the API data
 		console.log('token', data);
 		
-		return fetch('https://api.petfinder.com/v2/animals?location=' + "Austin, texas" + '&status=' + status, {
+		return fetch('https://api.petfinder.com/v2/animals?location=' + inputValue + '&status=' + status, {
 		headers: {
 			'Authorization': data.token_type + ' ' + data.access_token,
 			'Content-Type': 'application/x-www-form-urlencoded'
@@ -66,8 +65,8 @@ var getPetAPI = function() {
 
 	}).catch(function (err) {
 
-		// Log any errors
-		console.log('something went wrong', err);
+		// // Log any errors
+		// console.log('something went wrong', err);
 
 	});
 }
@@ -114,3 +113,4 @@ var intermittentDogImage = window.setInterval(function(){
 	getDogImage();
 },6000);
 
+userFormEl.addEventListener('submit', formSubmitHandler);
