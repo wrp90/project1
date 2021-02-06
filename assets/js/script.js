@@ -8,6 +8,7 @@
 
 //Global variables
 userFormEl = document.querySelector("#search-form");
+
 //Submit handler to handle the submit values
 var formSubmitHandler = function(event) {
 	event.preventDefault();
@@ -15,7 +16,6 @@ var formSubmitHandler = function(event) {
 	inputValue = userInput.value.trim();
 	getPetAPI(inputValue);
 }
-// console.log(zip)
 
 var getPetAPI = function() {
     var key = "kDsIkyfOaYiaj6UGqe3EKszmJknWu8CqX7E6ITfCrxpisziqkI";
@@ -58,22 +58,16 @@ var getPetAPI = function() {
 		//pulling image from data array and appending to page.
 		var img = document.createElement("img");
 		// img.src = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/50463411/1/?bust=1612553534&width=100";
-		img.src = data.animals[0].photos[0].small;
+		img.src = data.animals[11].photos[0].small;
 		var src = document.getElementById("header");
 		src.appendChild(img);
 	
 
-	}).catch(function (err) {
-
-		// // Log any errors
-		// console.log('something went wrong', err);
-
-	});
+	})
 }
 
-getPetAPI();
 
-// document.getElementById("seachBtn").addEventListener("click", getToken);
+
 
 function getCatImage(){
 	fetch('https://api.thecatapi.com/v1/images/search?size=full', {
