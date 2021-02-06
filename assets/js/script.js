@@ -41,14 +41,14 @@ var getPetAPI = function() {
 		// Log the API data
 		console.log('token', data);
 		
-		return fetch('https://api.petfinder.com/v2/animals?organization=' + org + '&status=' + status, {
+		return fetch('https://api.petfinder.com/v2/animals?location=' + "Austin, texas" + '&status=' + status, {
 		headers: {
 			'Authorization': data.token_type + ' ' + data.access_token,
 			'Content-Type': 'application/x-www-form-urlencoded'
 		}
 	});
 	}).then(function (response) {
-
+		console.log(response)
 		// Return the API response as JSON
 		return response.json();
 
