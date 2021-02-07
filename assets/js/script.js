@@ -55,23 +55,20 @@ var getPetAPI = function() {
 	}).then(function (data) {
 		// Log the pet data
 		console.log('pets', data);
-		for (var i = 0; i < data.animals.length; i++) {
+		//Changed the for loop length. Now the for loop looks through 6 places in the array and populates the results to the 
+		//6 result cards.  B
+		for (var i = 0; i < 6; i++) {
 			count = count + 1
 			var img = document.querySelector("#img" + count)
-			if (data.animals[i].photos[i] === 'undefined') {
+			console.log(img);
+			if (!data.animals[i].photos[0]) {
 				img.src = "https://www.smalldoorvet.com/wp-content/uploads/2020/03/Can-cats-and-dogs-get-coronavirus_resized.jpg";
-			// } else if (data.animals[i].photos[i].medium === 'undefined') {
-			// 	img.src = "https://www.smalldoorvet.com/wp-content/uploads/2020/03/Can-cats-and-dogs-get-coronavirus_resized.jpg";
+			
 			} else {
-				img.src = data.animals[i].photos[i].medium;
+				img.src = data.animals[i].photos[0].medium;
 			}
 		}
-		//pulling image from data array and appending to page.
-		// var img = document.createElement("img");
-		// // img.src = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/50463411/1/?bust=1612553534&width=100";
-		// img.src = data.animals[11].photos[0].small;
-		// var src = document.getElementById("header");
-		// src.appendChild(img);
+		
 	
 
 	})
