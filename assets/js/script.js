@@ -38,10 +38,11 @@ var getPetAPI = function() {
 		//can change the org name to find new animals from that org
 		var org = '';
 		var status = "adoptable";
+		var sort = 'distance';
 		// Log the API data
 		console.log('token', data);
 		
-		return fetch('https://api.petfinder.com/v2/animals?location=' + inputValue + '&status=' + status, {
+		return fetch('https://api.petfinder.com/v2/animals?location=' + inputValue + '&status=' + status + '&sort=' + sort, {
 		headers: {
 			'Authorization': data.token_type + ' ' + data.access_token,
 			'Content-Type': 'application/x-www-form-urlencoded'
@@ -60,13 +61,20 @@ var getPetAPI = function() {
 		for (var i = 0; i < 6; i++) {
 			count = count + 1
 			var img = document.querySelector("#img" + count)
-			console.log(img);
+			var name = document.querySelector('#nameId' + count)
+			var description = document.querySelector('#descriptionId' + count)
+			var contact = document.querySelector('#contactId' + count)
+			
 			if (!data.animals[i].photos[0]) {
 				img.src = "https://www.smalldoorvet.com/wp-content/uploads/2020/03/Can-cats-and-dogs-get-coronavirus_resized.jpg";
 			
 			} else {
 				img.src = data.animals[i].photos[0].medium;
-			}
+			}				
+				name.innerHTML = "Name: " + data.animals[i].name;
+				description.innerHTML = "Description: " + data.animals[i].description;
+				contact.innerHTML = "Email: " + data.animals[i].contact.email + "<br>" + "City: " + data.animals[i].contact.address.city
+				+ "<br>" + "State: " + data.animals[i].contact.address.state;
 		}
 		
 	
