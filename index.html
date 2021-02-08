@@ -7,13 +7,23 @@
   <title>Pet Cupid</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+  <style>
+    body {
+      background-image: url('https://www.creativefabrica.com/wp-content/uploads/2020/09/08/pink-cat-cute-Graphics-5348934-1.png');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    </style>
 </head>
-
+ 
 <!--Nav bar-->
 <body>
+
   <div class="top-bar">
     <div class="float-center col-12 col-md-9 flex-column align-center bg-light p-5">
       <h1 class="text-primary">Pet Matchmaker</h1>
+      <div class="float-center align-center"></div>
       <form id="search-form" class="form w-100">
         <input id="search-input" class="form-input" type="text" placeholder="Enter Zip Code">
         <!-- <select id="format-input" class="form-input w-100">
@@ -79,20 +89,14 @@
           <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
         </nav>
       </div> -->
-<!-- Modal -->
-<button id="modalBtn">Sign up for our email newsletter!</button>
-    <div class="modal" id="modal">
-      <div class="modal-content">
-          <span class="close">&times</span>
-          <p>Some text</p>
-      </div>
-    </div>
+
 <!--Search results text-->
-      <div  class="float-center">
-        <h1 id="searchResults">Search Results</h1>
-      </div>
-      <div>
-      </div>
+<div  class="float-center">
+  <h1 id="searchResults">Search Results</h1>
+</div>
+<div>
+</div>
+
 <!-- Start of cards -->
       <div id="cards" class="grid-container">
         <div class="grid-x grid-margin-x small-up-2 medium-up-3">
@@ -191,6 +195,16 @@
           </div>
         </div>
       </div>
+<!-- Modal -->
+<div class="button-group align-center"></div>
+<button id="modalBtn" class="button expanded">Sign up for our email newsletter!</button>
+</div>
+    <div class="modal" id="modal">
+      <div class="modal-content">
+          <span class="close">&times</span>
+          <p>Some text</p>
+      </div>
+    </div>
 
 
       
