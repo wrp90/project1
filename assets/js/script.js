@@ -2,24 +2,26 @@
 // var key = "kDsIkyfOaYiaj6UGqe3EKszmJknWu8CqX7E6ITfCrxpisziqkI";
 // var secret = "b7e6nrW0HowGJevaoZ4a7oEb2WHAEQHLARl5yh3E";
 
-// couple thoughts on what we can do from here:
-//we can push pieces of the array to different html pages, making indivdual pages for different animals (top5)
-//we can go back to finding a geo location API and try to link it with "org" var used on line 30 (not sure if it will work tho)
 
 //Global variables
 var userFormEl = document.querySelector("#search-form");
 var count = 0;
-
+document.getElementById("searchResults").hidden = true;
+document.getElementById("cards").hidden = true;
 //Submit handler to handle the submit values
-var formSubmitHandler = function(event) {
+var	formSubmitHandler = function(event) {
 	event.preventDefault();
-	userInput = document.getElementById("search-input");
+
+	var userInput = document.getElementById("search-input");
 	inputValue = userInput.value.trim();
 	getPetAPI(inputValue);
+
 }
 
 var getPetAPI = function() {
-    var key = "kDsIkyfOaYiaj6UGqe3EKszmJknWu8CqX7E6ITfCrxpisziqkI";
+	document.getElementById("searchResults").hidden = false;
+	document.getElementById("cards").hidden = false;
+	var key = "kDsIkyfOaYiaj6UGqe3EKszmJknWu8CqX7E6ITfCrxpisziqkI";
     var secret = "b7e6nrW0HowGJevaoZ4a7oEb2WHAEQHLARl5yh3E";
 
     fetch('https://api.petfinder.com/v2/oauth2/token', {
@@ -82,9 +84,7 @@ var getPetAPI = function() {
 	})
 }
 
-
-
-
+//Retrieves random cat images from API
 function getCatImage(){
 	fetch('https://api.thecatapi.com/v1/images/search?size=full', {
 		method: 'GET',
@@ -100,7 +100,7 @@ function getCatImage(){
 
 }
 
-
+//retrieves random dog images from API
 function getDogImage(){
 	fetch('https://dog.ceo/api/breeds/image/random', {
 		method: 'GET',
@@ -116,6 +116,11 @@ function getDogImage(){
 
 }
 
+//Initializes random image function
+getCatImage();
+getDogImage();
+
+//Continues random image function with six second interval
 var intermittentCatImage = window.setInterval(function(){
 	getCatImage();
 },6000);
