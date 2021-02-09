@@ -8,20 +8,27 @@ var userFormEl = document.querySelector("#search-form");
 var count = 0;
 document.getElementById("searchResults").hidden = true;
 document.getElementById("cards").hidden = true;
+document.getElementById("hideShowCat").hidden = false;
+document.getElementById("hideShowDog").hidden = false;
 //Submit handler to handle the submit values
 var	formSubmitHandler = function(event) {
+	console.log("formSubmitHandler is fine");
 	event.preventDefault();
 
 	var userInput = document.getElementById("search-input");
 	inputValue = userInput.value.trim();
 	getPetAPI(inputValue);
 	localStorage.setItem("zip", inputValue);
+	
 
 }
 
 var getPetAPI = function() {
+	console.log("getPetApi");
 	document.getElementById("searchResults").hidden = false;
 	document.getElementById("cards").hidden = false;
+	document.getElementById("hideShowCat").hidden = true;
+document.getElementById("hideShowDog").hidden = true;
 	var key = "kDsIkyfOaYiaj6UGqe3EKszmJknWu8CqX7E6ITfCrxpisziqkI";
     var secret = "b7e6nrW0HowGJevaoZ4a7oEb2WHAEQHLARl5yh3E";
 
@@ -69,7 +76,7 @@ var getPetAPI = function() {
 			var contact = document.querySelector('#contactId' + count)
 			
 			if (!data.animals[i].photos[0]) {
-				img.src = "https://www.smalldoorvet.com/wp-content/uploads/2020/03/Can-cats-and-dogs-get-coronavirus_resized.jpg";
+				img.src = "https://videowithmyvet.com/wp-content/themes/Divi-child/images/placeholder.jpg";
 			
 			} else {
 				img.src = data.animals[i].photos[0].medium;
