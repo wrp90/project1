@@ -5,7 +5,6 @@
 
 //Global variables
 var userFormEl = document.querySelector("#search-form");
-var count = 0;
 document.getElementById("searchResults").hidden = true;
 document.getElementById("cards").hidden = true;
 document.getElementById("hideShowCat").hidden = false;
@@ -62,29 +61,27 @@ document.getElementById("hideShowDog").hidden = true;
 		console.log(response)
 		// Return the API response as JSON
 		return response.json();
-
 	}).then(function (data) {
 		// Log the pet data
 		console.log('pets', data);
 		//Changed the for loop length. Now the for loop looks through 6 places in the array and populates the results to the 
-		//6 result cards.  B
-		for (var i = 0; i < 6; i++) {
-			count = count + 1
-			var img = document.querySelector("#img" + count)
-			var name = document.querySelector('#nameId' + count)
-			var description = document.querySelector('#descriptionId' + count)
-			var contact = document.querySelector('#contactId' + count)
+		//6 result cards.
+		for (var i = 1; i < 7; i++) {
+			var img = document.getElementById("img" + i)
+			var name = document.querySelector('#nameId' + i)
+			var description = document.querySelector('#descriptionId' + i)
+			var contact = document.querySelector('#contactId' + i)
 			
-			if (!data.animals[i].photos[0]) {
-				img.src = "https://videowithmyvet.com/wp-content/themes/Divi-child/images/placeholder.jpg";
+			if (data.animals[i-1].photos[0]) {
+				img.src = data.animals[i-1].photos[0].medium;
 			
 			} else {
-				img.src = data.animals[i].photos[0].medium;
+				img.src = "https://videowithmyvet.com/wp-content/themes/Divi-child/images/placeholder.jpg";
 			}				
-				name.innerHTML = "Name: " + data.animals[i].name;
-				description.innerHTML = "Description: " + data.animals[i].description;
-				contact.innerHTML = "Email: " + data.animals[i].contact.email + "<br>" + "City: " + data.animals[i].contact.address.city
-				+ "<br>" + "State: " + data.animals[i].contact.address.state;
+				name.innerHTML = "Name: " + data.animals[i-1].name;
+				description.innerHTML = "Description: " + data.animals[i-1].description;
+				contact.innerHTML = "Email: " + data.animals[i-1].contact.email + "<br>" + "City: " + data.animals[i-1].contact.address.city
+				+ "<br>" + "State: " + data.animals[i-1].contact.address.state;
 		}
 		
 	
