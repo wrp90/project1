@@ -15,6 +15,7 @@ var	formSubmitHandler = function(event) {
 	var userInput = document.getElementById("search-input");
 	inputValue = userInput.value.trim();
 	getPetAPI(inputValue);
+	localStorage.setItem("zip", inputValue);
 
 }
 
