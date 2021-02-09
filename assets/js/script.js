@@ -5,6 +5,8 @@
 
 //Global variables
 var userFormEl = document.querySelector("#search-form");
+var errorDisplay = document.getElementById("incorrectEntry");
+var closeBox = document.getElementById("closeZipCodeModal");
 document.getElementById("searchResults").hidden = true;
 document.getElementById("cards").hidden = true;
 document.getElementById("hideShowCat").hidden = false;
@@ -16,10 +18,22 @@ var	formSubmitHandler = function(event) {
 
 	var userInput = document.getElementById("search-input");
 	inputValue = userInput.value.trim();
-	getPetAPI(inputValue);
-	localStorage.setItem("zip", inputValue);
 	
+	if (isNaN(inputValue)){
+		errorDisplay.style.display = "block";
+	}
+	else if (inputValue.length !== 5){
+		errorDisplay.style.display = "block";
+	}
+	else {
+		getPetAPI(inputValue);
+		localStorage.setItem("zip", inputValue);
+	}
+	
+}
 
+closeBox.onclick = function() {
+	errorDisplay.style.display = "none";
 }
 
 var getPetAPI = function() {
@@ -27,7 +41,7 @@ var getPetAPI = function() {
 	document.getElementById("searchResults").hidden = false;
 	document.getElementById("cards").hidden = false;
 	document.getElementById("hideShowCat").hidden = true;
-document.getElementById("hideShowDog").hidden = true;
+	document.getElementById("hideShowDog").hidden = true;
 	var key = "kDsIkyfOaYiaj6UGqe3EKszmJknWu8CqX7E6ITfCrxpisziqkI";
     var secret = "b7e6nrW0HowGJevaoZ4a7oEb2WHAEQHLARl5yh3E";
 
@@ -147,6 +161,8 @@ span.onclick = function() {
 }
 window.onclick = function(event) {
   if (event.target == modal) {
-    modal.style.display = "none";
+    // modal.style.display = "none";
   }
 }
+
+
