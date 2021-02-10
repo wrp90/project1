@@ -11,6 +11,7 @@ document.getElementById("searchResults").hidden = true;
 document.getElementById("cards").hidden = true;
 document.getElementById("hideShowCat").hidden = false;
 document.getElementById("hideShowDog").hidden = false;
+document.getElementById("introduction").hidden = false;
 //Submit handler to handle the submit values
 var	formSubmitHandler = function(event) {
 	console.log("formSubmitHandler is fine");
@@ -44,6 +45,7 @@ var getPetAPI = function() {
 	document.getElementById("cards").hidden = false;
 	document.getElementById("hideShowCat").hidden = true;
 	document.getElementById("hideShowDog").hidden = true;
+	document.getElementById("introduction").hidden = true;
 	var key = "kDsIkyfOaYiaj6UGqe3EKszmJknWu8CqX7E6ITfCrxpisziqkI";
     var secret = "b7e6nrW0HowGJevaoZ4a7oEb2WHAEQHLARl5yh3E";
 
