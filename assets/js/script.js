@@ -29,7 +29,7 @@ var	formSubmitHandler = function(event) {
 		getPetAPI(inputValue);
 		localStorage.setItem("zip", inputValue);
 		var recentEntry = localStorage.getItem("zip");
-		
+		document.getElementById("searchResults").textContent = "Search results for: " + recentEntry;
 	}
 	
 }
