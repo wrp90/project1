@@ -2,6 +2,34 @@
     width: 300px;
     height: 300px;
 }
+.top-bar {
+  background-color: rgba(0,0,0,0.575);
+  border-radius: 20px;
+  
+}
+
+.introText {
+  margin: auto;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  font-size: 40px;
+  font-style: Arial;
+  background-color: rgba(0,0,0,0.575);
+  color: white;
+  border-radius: 20px;
+}
+
+body {
+    background-color: lightgray;
+  }
+.button {
+  border-radius: 4px;
+}
+.text-primary {
+  color: white;
+}
+
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
