@@ -2,7 +2,7 @@
 * The motivation for this project was to test our API skills and deliver a full web app from scratch.
 
 # How it works
-* The site is very simple to use.  Jusst type in a zip code in the search bar.
+* The site is very easy to use.  Simply type in a zip code in the search bar.
 * Upon submission, the user will see 6 cards with info about the local animals up for adoption in the area of the given zip.
 * The info cards display the animals:
     * Name
