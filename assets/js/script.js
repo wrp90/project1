@@ -28,6 +28,8 @@ var	formSubmitHandler = function(event) {
 	else {
 		getPetAPI(inputValue);
 		localStorage.setItem("zip", inputValue);
+		var recentEntry = localStorage.getItem("zip");
+		
 	}
 	
 }
